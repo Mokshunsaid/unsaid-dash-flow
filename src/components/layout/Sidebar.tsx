@@ -45,7 +45,7 @@ const roleNavigation: Record<string, NavItem[]> = {
   mentor: [
     { name: 'Dashboard', href: '/', icon: Home },
     { name: 'My Sessions', href: '/my-sessions', icon: Calendar, badge: 3 },
-    { name: 'Mentees', href: '/mentees', icon: Users },
+    { name: 'My Mentees', href: '/my-mentees', icon: Users },
     { name: 'Availability', href: '/availability', icon: Clock },
     { name: 'Analytics', href: '/analytics', icon: BarChart3 },
     { name: 'Profile', href: '/profile', icon: Settings },
