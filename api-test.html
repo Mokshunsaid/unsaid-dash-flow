@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UnsaidTalks API Test</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background: #f9f9f9;
+        }
+        .endpoint {
+            font-family: monospace;
+            background: #e8e8e8;
+            padding: 5px 10px;
+            border-radius: 4px;
+            display: inline-block;
+            margin: 5px 0;
+        }
+        .status {
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-left: 10px;
+        }
+        .success { background: #d4edda; color: #155724; }
+        .error { background: #f8d7da; color: #721c24; }
+        .pending { background: #fff3cd; color: #856404; }
+        .result {
+            margin-top: 10px;
+            padding: 10px;
+            background: #f1f1f1;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 12px;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        button {
+            background: #D98B1D;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 5px;
+        }
+        button:hover {
+            background: #b8741a;
+        }
+        .info {
+            background: #d1ecf1;
+            color: #0c5460;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 UnsaidTalks Postman Mock Server Test</h1>
+        
+        <div class="info">
+            <strong>Mock Server URL:</strong> <span id="apiUrl">https://caea2572-638c-4052-b6d5-ffe4e7b2cb4d.mock.pstmn.io</span><br>
+            <strong>Status:</strong> Click "Test All Endpoints" to check connectivity
+        </div>
+
+        <button onclick="testAllEndpoints()">🧪 Test All Endpoints</button>
+        <button onclick="testSpecificEndpoint()">🎯 Test Single Endpoint</button>
+        <button onclick="clearResults()">🧹 Clear Results</button>
+
+        <div id="results"></div>
+    </div>
+
+    <script>
+        const API_BASE_URL = 'https://caea2572-638c-4052-b6d5-ffe4e7b2cb4d.mock.pstmn.io';
+        
+        const endpoints = [
+            { 
+                name: 'Dashboard Stats', 
+                url: '/api/dashboard/mentor/stats',
+                expectedKeys: ['totalMentees', 'activeSessions', 'averageRating'],
+                description: 'Basic mentor statistics'
+            },
+            { 
+                name: 'Upcoming Sessions', 
+                url: '/api/sessions/upcoming',
+                expectedKeys: ['sessions'],
+                description: 'List of scheduled sessions'
+            },
+            { 
+                name: 'Recent Mentees', 
+                url: '/api/mentees/recent',
+                expectedKeys: ['mentees'],
+                description: 'Recently active mentees'
+            },
+            { 
+                name: 'Revenue Analytics', 
+                url: '/api/analytics/revenue',
+                expectedKeys: ['thisMonth', 'thisWeek'],
+                description: 'Financial data'
+            },
+            { 
+                name: 'Weekly Analytics', 
+                url: '/api/analytics/weekly',
+                expectedKeys: ['weeklyStats'],
+                description: 'Weekly performance'
+            },
+            { 
+                name: 'Notifications', 
+                url: '/api/notifications',
+                expectedKeys: ['notifications'],
+                description: 'User notifications'
+            },
+            { 
+                name: 'Availability', 
+                url: '/api/availability',
+                expectedKeys: ['availabilitySlots'],
+                description: 'Schedule management'
+            },
+            { 
+                name: 'Session Templates', 
+                url: '/api/templates',
+                expectedKeys: ['templates'],
+                description: 'Reusable session templates'
+            }
+        ];
+
+        async function testEndpoint(endpoint) {
+            const resultDiv = document.getElementById('results');
+            const testDiv = document.createElement('div');
+            testDiv.className = 'test-section';
+            testDiv.innerHTML = `
+                <div>
+                    <span class="endpoint">${endpoint.url}</span>
+                    <span class="status pending">Testing...</span>
+                </div>
+                <div class="result" id="result-${endpoint.name.replace(/\s+/g, '')}">
+                    Making request...
+                </div>
+            `;
+            resultDiv.appendChild(testDiv);
+
+            try {
+                console.log(`Testing ${endpoint.name}: ${API_BASE_URL}${endpoint.url}`);
+                
+                const response = await fetch(`${API_BASE_URL}${endpoint.url}`, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    }
+                });
+
+                const statusSpan = testDiv.querySelector('.status');
+                const resultDiv = testDiv.querySelector('.result');
+
+                if (response.ok) {
+                    statusSpan.className = 'status success';
+                    statusSpan.textContent = `✅ ${response.status} Success`;
+                    
+                    const data = await response.json();
+                    
+                    // Validate response structure
+                    let validationInfo = '';
+                    if (endpoint.expectedKeys) {
+                        const missingKeys = endpoint.expectedKeys.filter(key => !(key in data));
+                        const foundKeys = Object.keys(data);
+                        
+                        if (missingKeys.length === 0) {
+                            validationInfo = `<div style="color: green;">✅ Structure Valid</div>`;
+                        } else {
+                            validationInfo = `<div style="color: orange;">⚠️ Missing: ${missingKeys.join(', ')}</div>`;
+                        }
+                        validationInfo += `<div><strong>Keys found:</strong> ${foundKeys.join(', ')}</div>`;
+                    }
+                    
+                    resultDiv.innerHTML = `
+                        <strong>Description:</strong> ${endpoint.description}<br>
+                        ${validationInfo}
+                        <strong>Response:</strong><br>
+                        <pre style="background: #f8f8f8; padding: 10px; border-radius: 4px; overflow-x: auto;">${JSON.stringify(data, null, 2)}</pre>
+                    `;
+                } else {
+                    statusSpan.className = 'status error';
+                    statusSpan.textContent = `❌ ${response.status} ${response.statusText}`;
+                    
+                    const errorText = await response.text();
+                    resultDiv.innerHTML = `
+                        <strong>Error Response:</strong><br>
+                        ${errorText || 'No error details'}
+                    `;
+                }
+            } catch (error) {
+                const statusSpan = testDiv.querySelector('.status');
+                const resultDiv = testDiv.querySelector('.result');
+                
+                statusSpan.className = 'status error';
+                statusSpan.textContent = `❌ Network Error`;
+                
+                resultDiv.innerHTML = `
+                    <strong>Error:</strong><br>
+                    ${error.message}<br><br>
+                    <strong>Possible causes:</strong><br>
+                    • CORS policy blocking the request<br>
+                    • Mock server is not active<br>
+                    • Network connectivity issues<br>
+                    • Incorrect URL or endpoint path
+                `;
+            }
+        }
+
+        async function testAllEndpoints() {
+            document.getElementById('results').innerHTML = '<h2>🧪 Testing All Endpoints</h2>';
+            
+            for (const endpoint of endpoints) {
+                await testEndpoint(endpoint);
+                // Small delay between requests
+                await new Promise(resolve => setTimeout(resolve, 500));
+            }
+        }
+
+        async function testSpecificEndpoint() {
+            const url = prompt('Enter endpoint path (e.g., /api/dashboard/mentor/stats):');
+            if (url) {
+                document.getElementById('results').innerHTML = '<h2>🎯 Testing Single Endpoint</h2>';
+                await testEndpoint({ name: 'Custom', url: url });
+            }
+        }
+
+        function clearResults() {
+            document.getElementById('results').innerHTML = '';
+        }
+
+        // Test connectivity on page load
+        window.addEventListener('load', () => {
+            console.log('UnsaidTalks API Test Page Loaded');
+            console.log('Mock Server URL:', API_BASE_URL);
+        });
+    </script>
+</body>
+</html>

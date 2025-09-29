@@ -215,14 +215,12 @@ export const Login: React.FC = () => {
         <div className="space-y-8">
           {/* Logo & Welcome */}
           <div className="text-center lg:text-left">
-            <div className="flex items-center justify-center lg:justify-start gap-3 mb-6">
-              <div className="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center">
-                <span className="text-white font-bold text-xl">U</span>
-              </div>
-              <div>
-                <h1 className="text-3xl font-bold text-gradient-primary">UnsaidTalks</h1>
-                <p className="text-sm text-foreground-muted">Mentorship Platform</p>
-              </div>
+            <div className="flex items-center justify-center lg:justify-start mb-6">
+              <img 
+                src="/unsaidtalks-logo-new.png" 
+                alt="UnsaidTalks - Unfold Success From Untold Experiences" 
+                className="h-16 w-auto"
+              />
             </div>
             <h2 className="text-2xl font-bold text-foreground mb-2">Welcome Back!</h2>
             <p className="text-foreground-muted">Choose your role to access your personalized dashboard</p>
@@ -385,6 +383,17 @@ export const Login: React.FC = () => {
                       {isLoading ? 'Signing In...' : 'Sign In'}
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
+
+                    <div className="text-center">
+                      <Button 
+                        type="button"
+                        variant="link" 
+                        onClick={() => navigate('/forgot-password')}
+                        className="text-sm text-primary hover:text-primary-dark"
+                      >
+                        Forgot Password?
+                      </Button>
+                    </div>
                   </form>
                 </TabsContent>
 

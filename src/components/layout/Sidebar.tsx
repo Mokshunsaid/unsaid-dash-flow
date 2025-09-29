@@ -89,14 +89,20 @@ export const Sidebar: React.FC<SidebarProps> = ({
       {/* Logo Section */}
       <div className="flex items-center justify-between p-6 border-b border-border">
         <div className="flex items-center gap-3">
-          <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
-            <span className="text-white font-bold text-lg">U</span>
-          </div>
-          {!isCollapsed && (
-            <div>
-              <h1 className="font-bold text-lg text-gradient-primary">UnsaidTalks</h1>
-              <p className="text-xs text-foreground-muted">Mentorship Platform</p>
+          {isCollapsed ? (
+            <div className="w-10 h-10 flex items-center justify-center">
+              <img 
+                src="/unsaidtalks-logo-icon.svg" 
+                alt="UnsaidTalks Logo" 
+                className="w-8 h-8"
+              />
             </div>
+          ) : (
+            <img 
+              src="/unsaidtalks-logo-new.png" 
+              alt="UnsaidTalks - Unfold Success From Untold Experiences" 
+              className="h-12 w-auto"
+            />
           )}
         </div>
         

@@ -8,66 +8,75 @@
 
 @layer base {
   :root {
-    /* Background & Surface Colors */
-    --background: 0 0% 100%;
-    --background-secondary: 240 6% 97%;
-    --surface: 0 0% 100%;
-    --surface-elevated: 240 6% 99%;
+    /* UnsaidTalks Brand Colors */
+    --color-bg-cream: #FFFEF7;       /* Cream background */
+    --color-surface-light: #EDF6F6;  /* Light teal surface */
+    --color-text-black: #020101;     /* Deep black text */
+    --color-text-blue: #1B2430;      /* Dark blue-gray text */
+    --color-accent-dark: #12171F;    /* Very dark accent */
+    --color-primary-orange: #E68C10; /* Primary orange */
+    --color-primary-orange-hover: #D17C0F; /* Darker orange for hover */
     
-    /* Text Colors */
-    --foreground: 240 10% 3.9%;
-    --foreground-muted: 240 3.8% 46.1%;
-    --foreground-subtle: 240 4.8% 65.9%;
+    /* Background & Surface Colors - UnsaidTalks Theme */
+    --background: 60 33% 99%; /* Cream #FFFEF7 */
+    --background-secondary: 180 18% 95%; /* Light teal #EDF6F6 */
+    --surface: 60 33% 99%; /* Cream #FFFEF7 */
+    --surface-elevated: 180 18% 95%; /* Light teal #EDF6F6 */
     
-    /* Brand Colors - Deep Purple */
-    --primary: 258 90% 66%;
-    --primary-light: 258 85% 75%;
-    --primary-dark: 258 95% 55%;
-    --primary-foreground: 0 0% 100%;
+    /* Text Colors - UnsaidTalks Theme */
+    --foreground: 120 17% 1%; /* Deep black #020101 */
+    --foreground-muted: 210 22% 27%; /* Dark blue-gray #1B2430 */
+    --foreground-subtle: 210 33% 20%; /* Very dark blue #12171F */
     
-    /* Secondary - Warm Orange */
-    --secondary: 25 95% 53%;
-    --secondary-light: 25 90% 65%;
-    --secondary-dark: 25 100% 45%;
-    --secondary-foreground: 0 0% 100%;
+    /* Brand Colors - UnsaidTalks Orange */
+    --primary: 33 93% 49%; /* Orange #E68C10 */
+    --primary-light: 33 93% 59%; /* Lighter orange */
+    --primary-dark: 33 88% 44%; /* Darker orange #D17C0F */
+    --primary-foreground: 60 33% 99%; /* Cream text on orange */
     
-    /* Success & Status */
-    --success: 142 71% 45%;
-    --success-light: 142 69% 58%;
-    --warning: 38 92% 50%;
-    --warning-light: 38 90% 65%;
-    --destructive: 0 84% 60%;
-    --destructive-light: 0 80% 70%;
+    /* Secondary - Using teal surface color */
+    --secondary: 180 18% 95%; /* Light teal #EDF6F6 */
+    --secondary-light: 180 20% 97%;
+    --secondary-dark: 180 18% 90%;
+    --secondary-foreground: 120 17% 1%; /* Deep black text */
     
-    /* Neutral Colors */
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
+    /* Success & Status Colors */
+    --success: 120 60% 50%; /* Green for success */
+    --success-light: 120 60% 60%;
+    --warning: 33 93% 49%; /* Using UnsaidTalks orange for warnings */
+    --warning-light: 33 93% 59%;
+    --destructive: 0 84% 60%; /* Red for errors */
+    --destructive-light: 0 84% 70%;
     
-    /* Interactive Elements */
-    --border: 240 5.9% 90%;
-    --border-subtle: 240 4.8% 95.9%;
-    --input: 240 5.9% 90%;
-    --ring: 258 90% 66%;
+    /* Neutral Colors - UnsaidTalks Theme */
+    --muted: 180 18% 95%; /* Light teal #EDF6F6 */
+    --muted-foreground: 210 22% 27%; /* Dark blue-gray #1B2430 */
+    --accent: 180 18% 95%; /* Light teal #EDF6F6 */
+    --accent-foreground: 210 33% 20%; /* Very dark blue #12171F */
     
-    /* Cards */
-    --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
-    --card-shadow: 240 3.8% 46.1%;
+    /* Interactive Elements - UnsaidTalks Theme */
+    --border: 210 22% 85%; /* Light border from dark blue-gray */
+    --border-subtle: 180 18% 92%; /* Very light teal borders */
+    --input: 180 18% 95%; /* Light teal input backgrounds */
+    --ring: 33 93% 49%; /* Orange focus rings */
     
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(258 90% 66%), hsl(258 85% 75%));
-    --gradient-secondary: linear-gradient(135deg, hsl(25 95% 53%), hsl(25 90% 65%));
-    --gradient-hero: linear-gradient(135deg, hsl(258 90% 66%) 0%, hsl(25 95% 53%) 100%);
-    --gradient-subtle: linear-gradient(135deg, hsl(240 6% 99%) 0%, hsl(240 4.8% 95.9%) 100%);
+    /* Cards - UnsaidTalks Theme */
+    --card: 60 33% 99%; /* Cream #FFFEF7 */
+    --card-foreground: 120 17% 1%; /* Deep black text #020101 */
+    --card-shadow: 210 22% 80%; /* Shadow from dark blue-gray */
     
-    /* Shadows */
-    --shadow-sm: 0 1px 2px 0 hsl(240 3.8% 46.1% / 0.05);
-    --shadow-md: 0 4px 6px -1px hsl(240 3.8% 46.1% / 0.1), 0 2px 4px -1px hsl(240 3.8% 46.1% / 0.06);
-    --shadow-lg: 0 10px 15px -3px hsl(240 3.8% 46.1% / 0.1), 0 4px 6px -2px hsl(240 3.8% 46.1% / 0.05);
-    --shadow-xl: 0 20px 25px -5px hsl(240 3.8% 46.1% / 0.1), 0 10px 10px -5px hsl(240 3.8% 46.1% / 0.04);
-    --shadow-glow: 0 0 20px hsl(258 90% 66% / 0.3);
+    /* Gradients - UnsaidTalks Orange Theme */
+    --gradient-primary: linear-gradient(135deg, hsl(33 93% 49%), hsl(33 93% 59%));
+    --gradient-secondary: linear-gradient(135deg, hsl(180 18% 95%), hsl(180 20% 97%));
+    --gradient-hero: linear-gradient(135deg, hsl(33 93% 49%) 0%, hsl(33 93% 59%) 100%);
+    --gradient-subtle: linear-gradient(135deg, hsl(60 33% 99%) 0%, hsl(180 18% 95%) 100%);
+    
+    /* Shadows - UnsaidTalks Theme */
+    --shadow-sm: 0 1px 2px 0 hsl(210 33% 20% / 0.05);
+    --shadow-md: 0 4px 6px -1px hsl(210 33% 20% / 0.1), 0 2px 4px -1px hsl(210 33% 20% / 0.06);
+    --shadow-lg: 0 10px 15px -3px hsl(210 33% 20% / 0.1), 0 4px 6px -2px hsl(210 33% 20% / 0.05);
+    --shadow-xl: 0 20px 25px -5px hsl(210 33% 20% / 0.1), 0 10px 10px -5px hsl(210 33% 20% / 0.04);
+    --shadow-glow: 0 0 20px hsl(33 93% 49% / 0.3);
     
     /* Border Radius */
     --radius: 0.5rem;
@@ -80,77 +89,30 @@
     --transition-normal: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-slow: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 
-    --sidebar-background: 0 0% 98%;
+    --sidebar-background: 180 18% 95%; /* Light teal sidebar */
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-foreground: 210 22% 27%; /* Dark blue-gray text */
 
-    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary: 33 93% 49%; /* UnsaidTalks orange primary */
 
-    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-primary-foreground: 60 33% 99%; /* Cream text on orange */
 
-    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent: 60 33% 99%; /* Cream accent */
 
-    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-accent-foreground: 210 33% 20%; /* Very dark blue text */
 
-    --sidebar-border: 220 13% 91%;
+    --sidebar-border: 210 22% 85%; /* Light border */
 
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-ring: 33 93% 49%; /* Orange ring */
   }
 
+  /* UnsaidTalks consistent theme - same colors in both light and dark mode */
   .dark {
-    /* Background & Surface Colors */
-    --background: 240 10% 3.9%;
-    --background-secondary: 240 12% 6%;
-    --surface: 240 10% 3.9%;
-    --surface-elevated: 240 12% 8%;
-    
-    /* Text Colors */
-    --foreground: 0 0% 98%;
-    --foreground-muted: 240 5% 64.9%;
-    --foreground-subtle: 240 4% 55.9%;
-    
-    /* Brand Colors remain vibrant in dark mode */
-    --primary: 258 90% 66%;
-    --primary-light: 258 85% 75%;
-    --primary-dark: 258 95% 55%;
-    --primary-foreground: 0 0% 100%;
-    
-    --secondary: 25 95% 53%;
-    --secondary-light: 25 90% 65%;
-    --secondary-dark: 25 100% 45%;
-    --secondary-foreground: 0 0% 100%;
-    
-    /* Status Colors */
-    --success: 142 71% 45%;
-    --success-light: 142 69% 58%;
-    --warning: 38 92% 50%;
-    --warning-light: 38 90% 65%;
-    --destructive: 0 84% 60%;
-    --destructive-light: 0 80% 70%;
-    
-    /* Neutral Colors */
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
-    --accent: 240 3.7% 15.9%;
-    --accent-foreground: 240 5% 64.9%;
-    
-    /* Interactive Elements */
-    --border: 240 3.7% 15.9%;
-    --border-subtle: 240 3.7% 12%;
-    --input: 240 3.7% 15.9%;
-    --ring: 258 90% 66%;
-    
-    /* Cards */
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --card-shadow: 0 0% 0%;
-    
-    /* Shadows for dark mode */
-    --shadow-sm: 0 1px 2px 0 hsl(0 0% 0% / 0.15);
-    --shadow-md: 0 4px 6px -1px hsl(0 0% 0% / 0.2), 0 2px 4px -1px hsl(0 0% 0% / 0.1);
-    --shadow-lg: 0 10px 15px -3px hsl(0 0% 0% / 0.25), 0 4px 6px -2px hsl(0 0% 0% / 0.15);
-    --shadow-xl: 0 20px 25px -5px hsl(0 0% 0% / 0.3), 0 10px 10px -5px hsl(0 0% 0% / 0.2);
-    --shadow-glow: 0 0 25px hsl(258 90% 66% / 0.4);
+    /* Same as root UnsaidTalks theme */
+    --background: 60 33% 99%; /* Cream */
+    --foreground: 120 17% 1%; /* Deep black */
+    --primary: 33 93% 49%; /* Orange */
+    --primary-foreground: 60 33% 99%; /* Cream */
   }
 }
 
@@ -161,10 +123,15 @@
 
   body {
     @apply bg-background text-foreground font-inter antialiased;
+    /* UnsaidTalks cream background */
+    background-color: #FFFEF7 !important;
+    color: #020101 !important;
   }
 
   html {
     scroll-behavior: smooth;
+    /* UnsaidTalks cream background */
+    background-color: #FFFEF7 !important;
   }
 }
 

@@ -1,0 +1,392 @@
+{
+  "info": {
+    "name": "UnsaidTalks Dashboard API",
+    "description": "Mock API collection for UnsaidTalks mentor dashboard",
+    "version": "1.0.0",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Dashboard",
+      "item": [
+        {
+          "name": "Get Dashboard Stats",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/dashboard/mentor/stats",
+              "host": ["{{base_url}}"],
+              "path": ["api", "dashboard", "mentor", "stats"]
+            }
+          },
+          "response": [
+            {
+              "name": "Success Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/api/dashboard/mentor/stats",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "dashboard", "mentor", "stats"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"totalMentees\": 23,\n  \"activeSessions\": 5,\n  \"completedSessions\": 147,\n  \"upcomingMeetings\": 8,\n  \"averageRating\": 4.9,\n  \"responseRate\": \"98%\",\n  \"monthlyEarnings\": 4250,\n  \"weeklyEarnings\": 980,\n  \"totalHours\": 284\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Sessions",
+      "item": [
+        {
+          "name": "Get Upcoming Sessions",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/sessions/upcoming",
+              "host": ["{{base_url}}"],
+              "path": ["api", "sessions", "upcoming"]
+            }
+          },
+          "response": [
+            {
+              "name": "Success Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/api/sessions/upcoming",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "sessions", "upcoming"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"sessions\": [\n    {\n      \"id\": \"sess_001\",\n      \"menteeId\": \"user_123\",\n      \"menteeName\": \"Alex Johnson\",\n      \"menteeAvatar\": \"https://images.unsplash.com/photo-1494790108755-2616b612b5c5?w=150\",\n      \"topic\": \"Career Transition to Product Management\",\n      \"date\": \"2025-09-21\",\n      \"time\": \"2:00 PM\",\n      \"duration\": \"60 min\",\n      \"status\": \"confirmed\",\n      \"notes\": \"Looking to transition from engineering to PM role. Has 5 years of software development experience.\",\n      \"resumeUploaded\": true,\n      \"meetingLink\": \"https://meet.google.com/abc-def-ghi\",\n      \"sessionType\": \"career_guidance\",\n      \"priority\": \"high\",\n      \"menteeLevel\": \"intermediate\",\n      \"preparationNeeded\": [\"Review resume\", \"Prepare PM transition roadmap\"],\n      \"price\": 150\n    },\n    {\n      \"id\": \"sess_002\",\n      \"menteeId\": \"user_124\",\n      \"menteeName\": \"Maria Santos\",\n      \"menteeAvatar\": \"https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150\",\n      \"topic\": \"Technical Interview Preparation\",\n      \"date\": \"2025-09-22\",\n      \"time\": \"10:00 AM\",\n      \"duration\": \"45 min\",\n      \"status\": \"pending\",\n      \"notes\": \"Preparing for senior software engineer interviews at FAANG companies\",\n      \"resumeUploaded\": true,\n      \"meetingLink\": null,\n      \"sessionType\": \"interview_prep\",\n      \"priority\": \"medium\",\n      \"menteeLevel\": \"advanced\",\n      \"preparationNeeded\": [\"System design topics\", \"Coding problems\"],\n      \"price\": 120\n    },\n    {\n      \"id\": \"sess_003\",\n      \"menteeId\": \"user_125\",\n      \"menteeName\": \"Jordan Kim\",\n      \"menteeAvatar\": \"https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150\",\n      \"topic\": \"Startup Funding Strategy\",\n      \"date\": \"2025-09-25\",\n      \"time\": \"4:00 PM\",\n      \"duration\": \"60 min\",\n      \"status\": \"confirmed\",\n      \"notes\": \"Early-stage startup seeking Series A guidance. Built MVP with 10K users.\",\n      \"resumeUploaded\": false,\n      \"meetingLink\": \"https://meet.google.com/xyz-123-456\",\n      \"sessionType\": \"entrepreneurship\",\n      \"priority\": \"high\",\n      \"menteeLevel\": \"beginner\",\n      \"preparationNeeded\": [\"Review pitch deck\", \"Market analysis\"],\n      \"price\": 200\n    }\n  ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get Session History",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/sessions/history",
+              "host": ["{{base_url}}"],
+              "path": ["api", "sessions", "history"]
+            }
+          },
+          "response": [
+            {
+              "name": "Success Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/api/sessions/history",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "sessions", "history"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"sessions\": [\n    {\n      \"id\": \"sess_hist_001\",\n      \"menteeId\": \"user_120\",\n      \"menteeName\": \"Sarah Wilson\",\n      \"menteeAvatar\": \"https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150\",\n      \"topic\": \"Leadership Development\",\n      \"date\": \"2025-09-18\",\n      \"time\": \"3:00 PM\",\n      \"duration\": \"60 min\",\n      \"status\": \"completed\",\n      \"notes\": \"Excellent session on leadership principles. Very engaged participant.\",\n      \"resumeUploaded\": true,\n      \"meetingLink\": null,\n      \"sessionType\": \"leadership\",\n      \"priority\": \"medium\",\n      \"menteeLevel\": \"intermediate\",\n      \"preparationNeeded\": [],\n      \"price\": 180\n    }\n  ]\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Mentees",
+      "item": [
+        {
+          "name": "Get Recent Mentees",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/mentees/recent",
+              "host": ["{{base_url}}"],
+              "path": ["api", "mentees", "recent"]
+            }
+          },
+          "response": [
+            {
+              "name": "Success Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/api/mentees/recent",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "mentees", "recent"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"mentees\": [\n    {\n      \"id\": \"user_123\",\n      \"name\": \"Sarah Wilson\",\n      \"avatar\": \"https://images.unsplash.com/photo-1494790108755-2616b612b5c5?w=150\",\n      \"email\": \"sarah.wilson@email.com\",\n      \"phone\": \"+1 (555) 123-4567\",\n      \"lastSession\": \"3 days ago\",\n      \"progress\": \"excellent\",\n      \"totalSessions\": 8,\n      \"totalSpent\": 1200,\n      \"goals\": [\"Product Management Career\", \"Leadership Skills\"],\n      \"nextSession\": \"2025-09-21\",\n      \"completionRate\": 95,\n      \"rating\": 5.0,\n      \"notes\": \"Making excellent progress on PM transition. Very engaged and prepared.\"\n    },\n    {\n      \"id\": \"user_124\",\n      \"name\": \"Michael Chen\",\n      \"avatar\": \"https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150\",\n      \"email\": \"m.chen@email.com\",\n      \"phone\": \"+1 (555) 987-6543\",\n      \"lastSession\": \"1 week ago\",\n      \"progress\": \"good\",\n      \"totalSessions\": 5,\n      \"totalSpent\": 750,\n      \"goals\": [\"System Design\", \"Technical Leadership\"],\n      \"nextSession\": \"2025-09-23\",\n      \"completionRate\": 80,\n      \"rating\": 4.8,\n      \"notes\": \"Good progress on system design concepts. Needs more practice with distributed systems.\"\n    },\n    {\n      \"id\": \"user_125\",\n      \"name\": \"Lisa Thompson\",\n      \"avatar\": \"https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150\",\n      \"email\": \"lisa.t@email.com\",\n      \"phone\": \"+1 (555) 456-7890\",\n      \"lastSession\": \"2 weeks ago\",\n      \"progress\": \"needs_followup\",\n      \"totalSessions\": 3,\n      \"totalSpent\": 450,\n      \"goals\": [\"Career Change\", \"Skill Development\"],\n      \"nextSession\": null,\n      \"completionRate\": 60,\n      \"rating\": 4.5,\n      \"notes\": \"Missed last session. Need to follow up and reschedule. Seems overwhelmed with career change.\"\n    }\n  ]\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Analytics",
+      "item": [
+        {
+          "name": "Get Weekly Analytics",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/analytics/weekly",
+              "host": ["{{base_url}}"],
+              "path": ["api", "analytics", "weekly"]
+            }
+          },
+          "response": [
+            {
+              "name": "Success Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/api/analytics/weekly",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "analytics", "weekly"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"weeklyStats\": [\n    { \"day\": \"Mon\", \"sessions\": 3, \"revenue\": 450, \"hours\": 3 },\n    { \"day\": \"Tue\", \"sessions\": 2, \"revenue\": 300, \"hours\": 2 },\n    { \"day\": \"Wed\", \"sessions\": 4, \"revenue\": 600, \"hours\": 4 },\n    { \"day\": \"Thu\", \"sessions\": 1, \"revenue\": 150, \"hours\": 1 },\n    { \"day\": \"Fri\", \"sessions\": 3, \"revenue\": 450, \"hours\": 3 },\n    { \"day\": \"Sat\", \"sessions\": 2, \"revenue\": 300, \"hours\": 2 },\n    { \"day\": \"Sun\", \"sessions\": 1, \"revenue\": 150, \"hours\": 1 }\n  ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get Revenue Analytics",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/analytics/revenue",
+              "host": ["{{base_url}}"],
+              "path": ["api", "analytics", "revenue"]
+            }
+          },
+          "response": [
+            {
+              "name": "Success Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/api/analytics/revenue",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "analytics", "revenue"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"thisMonth\": 4250,\n  \"lastMonth\": 3800,\n  \"thisWeek\": 980,\n  \"pendingPayments\": 750,\n  \"yearToDate\": 38500,\n  \"averageSessionRate\": 165,\n  \"totalHours\": 284,\n  \"topEarningMonth\": \"August 2025\"\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Notifications",
+      "item": [
+        {
+          "name": "Get Notifications",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/notifications",
+              "host": ["{{base_url}}"],
+              "path": ["api", "notifications"]
+            }
+          },
+          "response": [
+            {
+              "name": "Success Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/api/notifications",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "notifications"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"notifications\": [\n    {\n      \"id\": \"notif_001\",\n      \"type\": \"session_reminder\",\n      \"title\": \"Session starting in 30 minutes\",\n      \"message\": \"Your session with Sarah Johnson starts at 10:00 AM\",\n      \"timestamp\": \"2025-09-21T09:30:00Z\",\n      \"read\": false,\n      \"priority\": \"high\"\n    },\n    {\n      \"id\": \"notif_002\",\n      \"type\": \"new_mentee\",\n      \"title\": \"New mentee request\",\n      \"message\": \"Alex Kumar wants to book a session with you\",\n      \"timestamp\": \"2025-09-20T16:45:00Z\",\n      \"read\": false,\n      \"priority\": \"medium\"\n    },\n    {\n      \"id\": \"notif_003\",\n      \"type\": \"payment\",\n      \"title\": \"Payment received\",\n      \"message\": \"You received $150 for your session with Maria Santos\",\n      \"timestamp\": \"2025-09-20T14:30:00Z\",\n      \"read\": true,\n      \"priority\": \"low\"\n    }\n  ]\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Availability",
+      "item": [
+        {
+          "name": "Get Availability",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/availability",
+              "host": ["{{base_url}}"],
+              "path": ["api", "availability"]
+            }
+          },
+          "response": [
+            {
+              "name": "Success Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/api/availability",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "availability"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"availabilitySlots\": [\n    { \"day\": \"Monday\", \"slots\": [\"9:00 AM\", \"11:00 AM\", \"2:00 PM\", \"4:00 PM\"] },\n    { \"day\": \"Tuesday\", \"slots\": [\"10:00 AM\", \"1:00 PM\", \"3:00 PM\"] },\n    { \"day\": \"Wednesday\", \"slots\": [\"9:00 AM\", \"11:00 AM\", \"2:00 PM\", \"4:00 PM\", \"6:00 PM\"] },\n    { \"day\": \"Thursday\", \"slots\": [\"10:00 AM\", \"1:00 PM\", \"3:00 PM\", \"5:00 PM\"] },\n    { \"day\": \"Friday\", \"slots\": [\"9:00 AM\", \"11:00 AM\", \"2:00 PM\"] },\n    { \"day\": \"Saturday\", \"slots\": [\"10:00 AM\", \"2:00 PM\"] },\n    { \"day\": \"Sunday\", \"slots\": [] }\n  ]\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Templates",
+      "item": [
+        {
+          "name": "Get Session Templates",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/templates",
+              "host": ["{{base_url}}"],
+              "path": ["api", "templates"]
+            }
+          },
+          "response": [
+            {
+              "name": "Success Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/api/templates",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "templates"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"templates\": [\n    {\n      \"id\": \"template_001\",\n      \"name\": \"Career Transition Session\",\n      \"duration\": \"60 min\",\n      \"description\": \"Comprehensive career transition planning and roadmap creation\",\n      \"agenda\": [\"Current role assessment\", \"Target role analysis\", \"Skill gap identification\", \"Action plan creation\"],\n      \"price\": 150,\n      \"usageCount\": 15,\n      \"totalEarnings\": 2250\n    },\n    {\n      \"id\": \"template_002\",\n      \"name\": \"Technical Interview Prep\",\n      \"duration\": \"45 min\",\n      \"description\": \"System design and coding interview preparation\",\n      \"agenda\": [\"Mock interview\", \"Problem solving techniques\", \"Best practices review\", \"Feedback session\"],\n      \"price\": 120,\n      \"usageCount\": 22,\n      \"totalEarnings\": 2640\n    },\n    {\n      \"id\": \"template_003\",\n      \"name\": \"Leadership Coaching\",\n      \"duration\": \"60 min\",\n      \"description\": \"Leadership skills development and team management strategies\",\n      \"agenda\": [\"Leadership assessment\", \"Communication strategies\", \"Team dynamics\", \"Growth planning\"],\n      \"price\": 180,\n      \"usageCount\": 8,\n      \"totalEarnings\": 1440\n    }\n  ]\n}"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "https://caea2572-638c-4052-b6d5-ffe4e7b2cb4d.mock.pstmn.io",
+      "type": "string"
+    }
+  ]
+}

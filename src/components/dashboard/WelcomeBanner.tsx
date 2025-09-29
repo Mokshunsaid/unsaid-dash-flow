@@ -55,11 +55,11 @@ export const WelcomeBanner: React.FC<WelcomeBannerProps> = ({
       className
     )}>
       {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute -top-24 -right-24 w-48 h-48 bg-white/10 rounded-full"></div>
-        <div className="absolute -bottom-12 -left-12 w-32 h-32 bg-white/10 rounded-full"></div>
-        <div className="absolute top-1/2 left-1/4 w-6 h-6 bg-white/20 rounded-full"></div>
-        <div className="absolute top-1/4 right-1/3 w-4 h-4 bg-white/20 rounded-full"></div>
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute -top-24 -right-24 w-48 h-48 bg-white/30 rounded-full"></div>
+        <div className="absolute -bottom-12 -left-12 w-32 h-32 bg-white/30 rounded-full"></div>
+        <div className="absolute top-1/2 left-1/4 w-6 h-6 bg-white/40 rounded-full"></div>
+        <div className="absolute top-1/4 right-1/3 w-4 h-4 bg-white/40 rounded-full"></div>
       </div>
 
       {/* Content */}
@@ -131,7 +131,7 @@ export const WelcomeBanner: React.FC<WelcomeBannerProps> = ({
             </div>
 
             <Button 
-              className="bg-white/20 hover:bg-white/30 text-white border border-white/30 hover:border-white/50 transition-all duration-200"
+              className="bg-primary hover:bg-primary-dark text-primary-foreground border border-primary/30 hover:border-primary/50 transition-all duration-200"
               size="lg"
             >
               {roleConfig.cta}
@@ -142,13 +142,13 @@ export const WelcomeBanner: React.FC<WelcomeBannerProps> = ({
           {/* Illustration placeholder - could be replaced with actual illustration */}
           <div className="hidden lg:block lg:w-80">
             <div className="relative h-48 w-full">
-              <div className="absolute inset-0 bg-white/10 rounded-lg backdrop-blur-sm">
+              <div className="absolute inset-0 bg-white/30 rounded-lg backdrop-blur-sm border border-white/40">
                 <div className="flex items-center justify-center h-full">
                   <div className="text-center">
-                    <div className="w-16 h-16 bg-white/20 rounded-full mx-auto mb-4 flex items-center justify-center">
+                    <div className="w-16 h-16 bg-white/40 rounded-full mx-auto mb-4 flex items-center justify-center">
                       <Star className="h-8 w-8 text-white" />
                     </div>
-                    <p className="text-white/80 text-sm">Your journey continues...</p>
+                    <p className="text-white/90 text-sm">Your journey continues...</p>
                   </div>
                 </div>
               </div>
